@@ -9,7 +9,7 @@ namespace JobAdder.Web.Controllers
 {
     public class CandidateController : Controller
     {
-        private readonly CandidateService _service = new CandidateService();
+        private readonly CandidateService _candidateService = new CandidateService();
 
         public CandidateController()
         {
@@ -18,7 +18,7 @@ namespace JobAdder.Web.Controllers
         // GET: Candidate
         public async Task<ActionResult> Index()
         {
-            List<Candidate> candidates = await _service.ListAllCandidatesAsync();
+            List<Candidate> candidates = await _candidateService.ListAllCandidatesAsync();
 
             return View(candidates.OrderBy(q => q.name).ToList());
         }

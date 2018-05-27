@@ -6,17 +6,19 @@
 <h2>@ViewData["Title"]</h2>
 <div class="container">
     <div class="row">
-        <div class="col-sm-4 col-xs-3 font-weight-bold"><big>Name</big></div>
+        <div class="col-sm-3 col-xs-3 font-weight-bold"><big>Name</big></div>
         <div class="col-sm-3 col-xs-3 font-weight-bold"><big>Company</big></div>
-        <div class="col-sm-5 col-xs-6"><big>Skills</big></div>
+        <div class="col-sm-5 col-xs-5"><big>Skills</big></div>
+        <div class="col-sm-1 col-xs-1 text-center" title="Best fit for this job">Best Fit</div>
     </div>
     @foreach (Job item in Model)
     {
         <hr />
         <div class="row">
-            <div class="col-sm-4 col-xs-3">@item.name</div>
+            <div class="col-sm-3 col-xs-3">@item.name</div>
             <div class="col-sm-3 col-xs-3">@item.company</div>
-            <div class="col-sm-5 col-xs-6">@item.skills</div>
+            <div class="col-sm-5 col-xs-5">@item.skills</div>
+            <div class="col-sm-1 col-xs-1 text-center"><a href="/Job/BestFit?jobId=@item.jobId">Show</a></div>
         </div>
     }
 </div>
