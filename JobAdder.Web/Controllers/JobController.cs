@@ -22,7 +22,7 @@ namespace JobAdder.Web.Controllers
         {
             List<Job> jobs = await _jobService.ListAllJobsAsync();
 
-            return View(jobs.OrderBy(q => q.name).ToList());
+            return View(jobs.OrderBy(q => q.Name).ToList());
         }
 
         public async Task<ActionResult> BestFit(int jobId)
@@ -33,13 +33,13 @@ namespace JobAdder.Web.Controllers
             List<Job> jobs = await _jobService.ListAllJobsAsync();
 
             // Get the current job
-            Job job = jobs.FirstOrDefault(q => q.jobId == jobId);
+            Job job = jobs.FirstOrDefault(q => q.JobId == jobId);
 
             if (job != null)
             {
                 // Create a list of job skills
                 List<string> listJobSkills = new List<string>();
-                listJobSkills.AddRange(job.skills.Split(','));
+                listJobSkills.AddRange(job.Skills.Split(','));
 
                 // List all candidates
                 List<Candidate> candidates = await _candidateService.ListAllCandidatesAsync();
@@ -50,24 +50,27 @@ namespace JobAdder.Web.Controllers
                     List<string> listCandidateSkills = new List<string>();
                     listCandidateSkills
                         .AddRange(candidates
-                        .FirstOrDefault(q => q.candidateId == item.candidateId).skillTags.Split(','));
+                        .FirstOrDefault(q => q.CandidateId == item.CandidateId).SkillTags.Split(','));
 
                     // Compare both lists to search common skills
                     int total = listCandidateSkills.Intersect(listJobSkills).Count();
 
                     model.Add(new BestFitViewModel
                     {
-                        candidateId = item.candidateId,
-                        name = item.name,
-                        skillTags = item.skillTags,
+                        CandidateId = item.CandidateId,
+                        Name = item.Name,
+                        SkillTags = item.SkillTags,
                         Total = total
                     });
                 }
 
-                // Set the title of the page
-                ViewBag.Title = $"List of the best candidates for {job.name}";
+                // Set the total of candidates
+                const int totalOfCandidates = 10;
 
-                return View(model.OrderByDescending(q => q.Total).Take(10));
+                // Set the title of the page
+                ViewBag.Title = $"Top {totalOfCandidates} candidates for {job.Name}";
+
+                return View(model.OrderByDescending(q => q.Total).Take(totalOfCandidates));
             }
 
             return View(model);

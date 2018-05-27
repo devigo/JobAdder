@@ -20,7 +20,7 @@ namespace JobAdder.Web.Controllers
         {
             List<Candidate> candidates = await _candidateService.ListAllCandidatesAsync();
 
-            return View(candidates.OrderBy(q => q.name).ToList());
+            return View(candidates.OrderBy(q => q.Name).ToList());
         }
     }
 }

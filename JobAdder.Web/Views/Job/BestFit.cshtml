@@ -10,14 +10,14 @@
         <div class="row">
             <div class="col-sm-3 col-xs-4 font-weight-bold"><big>Name</big></div>
             <div class="col-sm-6 col-xs-6 font-weight-bold"><big>Skill Tags</big></div>
-            <div class="col-sm-3 col-xs-2 font-weight-bold text-center" title="Total of skills for this job"><big>Total</big></div>
+            <div class="col-sm-3 col-xs-2 font-weight-bold text-center" title="Total of skills which match for this job"><big>Total of Skills</big></div>
         </div>
         foreach (BestFitViewModel item in Model)
         {
             <hr />
             <div class="row">
-                <div class="col-sm-3 col-xs-4">@item.name</div>
-                <div class="col-sm-6 col-xs-6">@item.skillTags</div>
+                <div class="col-sm-3 col-xs-4">@item.Name</div>
+                <div class="col-sm-6 col-xs-6">@item.SkillTags</div>
                 <div class="col-sm-3 col-xs-2 text-center">@item.Total</div>
             </div>
         }

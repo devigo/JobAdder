@@ -13,3 +13,10 @@ C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tes
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\obj\Debug\JobAdder.Tests.csproj.CopyComplete
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\obj\Debug\JobAdder.Tests.dll
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\obj\Debug\JobAdder.Tests.pdb
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\bin\Debug\JobAdder.Integrations.dll
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\bin\Debug\JobAdder.Integrations.pdb
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\bin\Debug\JobAdder.Integrations.dll.config
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Tests\bin\Debug\Newtonsoft.Json.xml

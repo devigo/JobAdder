@@ -2,10 +2,10 @@
 {
     public class Candidate
     {
-        public int candidateId { get; set; }
+        public int CandidateId { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public string skillTags { get; set; }
+        public string SkillTags { get; set; }
     }
 }
