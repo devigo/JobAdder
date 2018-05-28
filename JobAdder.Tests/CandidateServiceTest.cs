@@ -14,10 +14,10 @@ namespace JobAdder.Tests
         [TestMethod]
         public void Method_ListAllCandidatesAsync()
         {
-            Task<List<Candidate>> list = _service.ListAllCandidatesAsync();
+            Task<List<Candidate>> actual = _service.ListAllCandidatesAsync();
 
-            Assert.IsNotNull(list);
-            Assert.IsTrue(list.Result.Count >= 0);
+            Assert.IsNotNull(actual);
+            Assert.IsTrue(actual.Result.Count >= 0);
         }
     }
 }

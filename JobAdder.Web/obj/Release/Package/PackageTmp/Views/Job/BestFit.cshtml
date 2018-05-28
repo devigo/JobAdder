@@ -1,0 +1,36 @@
+﻿@using JobAdder.Web.Models;
+@model IEnumerable<BestFitViewModel>
+@{
+    ViewBag.Title = ViewBag.Title != null ? ViewBag.Title : "Oops...";
+}
+<h3>
+    @ViewBag.Title
+    <br />
+    <small>@ViewBag.Subtitle</small>
+</h3>
+<div id="content" class="container">
+    @if (Model.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-sm-4 col-xs-4"><label>Name</label></div>
+            <div class="col-sm-6 col-xs-6"><label>Skill Tags</label></div>
+            <div class="col-sm-2 col-xs-2 text-center" title="Total of skills which match for this job">
+                <label class="hidden-xs">Total of Skills</label>
+            </div>
+        </div>
+        foreach (BestFitViewModel item in Model)
+        {
+            <div class="row">
+                <div class="col-sm-4 col-xs-4">@item.Name</div>
+                <div class="col-sm-6 col-xs-6">@item.SkillTags</div>
+                <div class="col-sm-2 col-xs-2 text-center">@item.Total</div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-sm-12 col-xs-12"><i>Job not found or there are no candidates for this job.</i></div>
+        </div>
+    }
+</div>

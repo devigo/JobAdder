@@ -1,24 +1,29 @@
 ﻿@using JobAdder.Web.Models;
 @model IEnumerable<BestFitViewModel>
 @{
-    ViewData["Title"] = ViewBag.Title != null ? ViewBag.Title : "Oops...";
+    ViewBag.Title = ViewBag.Title != null ? ViewBag.Title : "Oops...";
 }
-<h2>@ViewData["Title"]</h2>
-<div class="container">
+<h3>
+    @ViewBag.Title
+    <br />
+    <small>@ViewBag.Subtitle</small>
+</h3>
+<div id="content" class="container">
     @if (Model.Count() > 0)
     {
         <div class="row">
-            <div class="col-sm-3 col-xs-4 font-weight-bold"><big>Name</big></div>
-            <div class="col-sm-6 col-xs-6 font-weight-bold"><big>Skill Tags</big></div>
-            <div class="col-sm-3 col-xs-2 font-weight-bold text-center" title="Total of skills which match for this job"><big>Total of Skills</big></div>
+            <div class="col-sm-4 col-xs-4"><label>Name</label></div>
+            <div class="col-sm-6 col-xs-6"><label>Skill Tags</label></div>
+            <div class="col-sm-2 col-xs-2 text-center" title="Total of skills which match for this job">
+                <label class="hidden-xs">Total of Skills</label>
+            </div>
         </div>
         foreach (BestFitViewModel item in Model)
         {
-            <hr />
             <div class="row">
-                <div class="col-sm-3 col-xs-4">@item.Name</div>
+                <div class="col-sm-4 col-xs-4">@item.Name</div>
                 <div class="col-sm-6 col-xs-6">@item.SkillTags</div>
-                <div class="col-sm-3 col-xs-2 text-center">@item.Total</div>
+                <div class="col-sm-2 col-xs-2 text-center">@item.Total</div>
             </div>
         }
     }

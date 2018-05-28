@@ -1,0 +1,27 @@
+﻿@using JobAdder.Integrations.Models;
+@model IEnumerable<Job>
+@{
+    ViewData["Title"] = "List of Jobs";
+}
+<h3>@ViewData["Title"]</h3>
+<div id="content" class="container">
+    <div class="row">
+        <div class="col-sm-3 col-xs-3"><label>Name</label></div>
+        <div class="col-sm-2 col-xs-3"><label>Company</label></div>
+        <div class="col-sm-6 col-xs-4"><label>Skills</label></div>
+        <div class="col-sm-1 col-xs-2 text-center" title="Best fit for this job">
+            <label class="hidden-xs">Best Fit</label>
+        </div>
+    </div>
+    @foreach (Job item in Model)
+    {
+        <div class="row">
+            <div class="col-sm-3 col-xs-3">@item.Name</div>
+            <div class="col-sm-2 col-xs-3">@item.Company</div>
+            <div class="col-sm-6 col-xs-4">@item.Skills</div>
+            <div class="col-sm-1 col-xs-2 text-center" title="Show the best fit for this job">
+                <a href="/Job/BestFit?jobId=@item.JobId">Show</a>
+            </div>
+        </div>
+    }
+</div>

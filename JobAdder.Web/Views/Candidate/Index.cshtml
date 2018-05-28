@@ -3,15 +3,14 @@
 @{
     ViewData["Title"] = "List of Candidates";
 }
-<h2>@ViewData["Title"]</h2>
-<div class="container">
+<h3>@ViewData["Title"]</h3>
+<div id="content" class="container">
     <div class="row">
-        <div class="col-sm-4 col-xs-5 font-weight-bold"><big>Name</big></div>
-        <div class="col-sm-8 col-xs-7 font-weight-bold"><big>Skill Tags</big></div>
+        <div class="col-sm-4 col-xs-5"><label>Name</label></div>
+        <div class="col-sm-8 col-xs-7"><label>Skill Tags</label></div>
     </div>
     @foreach (Candidate item in Model)
     {
-        <hr />
         <div class="row">
             <div class="col-sm-4 col-xs-5">@item.Name</div>
             <div class="col-sm-8 col-xs-7">@item.SkillTags</div>
