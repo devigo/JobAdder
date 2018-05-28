@@ -2,6 +2,7 @@
 using JobAdder.Integrations.Services;
 using JobAdder.Web.Models;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -85,8 +86,8 @@ namespace JobAdder.Web.Controllers
                     });
                 }
 
-                // Set the total of candidates
-                const int totalCandidates = 10;
+                // Get the total of candidates who will be retrieved per job
+                int.TryParse(ConfigurationManager.AppSettings["Candidates"], out int totalCandidates);
 
                 // Set the title of the page
                 ViewBag.Title = $"Top {totalCandidates} candidates for {job.Name}";
