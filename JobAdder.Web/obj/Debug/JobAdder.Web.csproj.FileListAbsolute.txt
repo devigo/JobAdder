@@ -51,6 +51,7 @@ C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\roslyn\VBCSCompiler.exe
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Antlr3.Runtime.dll
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\JobAdder.Integrations.dll
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -69,6 +70,9 @@ C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Web.WebPages.dll
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\WebGrease.dll
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Net.Http.Formatting.dll
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\JobAdder.Integrations.pdb
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\JobAdder.Integrations.dll.config
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Web.Helpers.xml
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Web.Mvc.xml
@@ -84,13 +88,9 @@ C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\Microsoft.AI.Web.xml
+C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Net.Http.Formatting.xml
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\obj\Debug\JobAdder.Web.csprojResolveAssemblyReference.cache
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\obj\Debug\JobAdder.Web.csproj.CoreCompileInputs.cache
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\obj\Debug\JobAdder.Web.csproj.CopyComplete
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\obj\Debug\JobAdder.Web.dll
 C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\obj\Debug\JobAdder.Web.pdb
-C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\JobAdder.Integrations.dll
-C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Net.Http.Formatting.dll
-C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\JobAdder.Integrations.pdb
-C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\JobAdder.Integrations.dll.config
-C:\Users\Allex Rocha\Documents\Visual Studio 2017\Projects\JobAdder\JobAdder.Web\bin\System.Net.Http.Formatting.xml
