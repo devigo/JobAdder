@@ -1,59 +1,58 @@
-﻿using JobAdder.Integrations.Models;
-using System;
+﻿using JobAdder.Integrations.Common;
+using JobAdder.Integrations.Models;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Net.Http;
-using System.Runtime.Caching;
 using System.Threading.Tasks;
 
 namespace JobAdder.Integrations.Services
 {
     public class CandidateService
     {
-        #region HttpClient
+        #region Declarations
 
-        private static HttpClient _client = new HttpClient();
+        // Declare a HttpClient
+        private readonly HttpClient _httpClient;
 
-        #endregion
-
-        #region Cache
-
-        private static MemoryCache cache = MemoryCache.Default;
+        // Declare and set a Cache
+        private Cache _cache = new Cache();
 
         #endregion
 
-        #region ListAllCandidates
+        public CandidateService(HttpClient httpClient) // This is the singleton instance of HttpClient
+        {
+            // Assign it to the local HttpClient
+            _httpClient = httpClient;
+        }
 
+        #region ListAllCandidatesAsync
+
+        /// <summary>
+        /// List all candidates from JobAdder
+        /// </summary>
+        /// <returns>Return a list of candidates</returns>
         public async Task<List<Candidate>> ListAllCandidatesAsync()
         {
             // Set the key name
             const string key = "ListAllCandidatesAsync";
+            // Get the list of values from the cache
+            List<Candidate> candidates = _cache.GetObject<Candidate>(key);
 
-            if (cache[key] == null)
+            if (candidates == null)
             {
                 // Set the URI
-                string uri = Common.Uri.Get() + "candidates";
+                string uri = Uri.Get() + "candidates";
 
-                HttpResponseMessage response = await _client.GetAsync(uri);
-                List<Candidate> listValues = null;
-
+                HttpResponseMessage response = await _httpClient.GetAsync(uri);
+                
                 if (response.IsSuccessStatusCode)
                 {
-                    listValues = await response.Content.ReadAsAsync<List<Candidate>>();
+                    candidates = await response.Content.ReadAsAsync<List<Candidate>>();
                 }
 
-                //Get expiration time
-                int.TryParse(ConfigurationManager.AppSettings["CacheExpiration"], out int cacheExpiration);
-
-                // Set cache expiration time
-                CacheItemPolicy policy = new CacheItemPolicy { SlidingExpiration = new TimeSpan(cacheExpiration, 0, 0) };
-
-                // Add object to cache
-                cache.Add(key, listValues, policy);
+                _cache.SetObject(key, candidates);
             }
 
-            // Get the list of values from the cache
-            return (List<Candidate>)cache[key];
+            return candidates;
         }
 
         #endregion

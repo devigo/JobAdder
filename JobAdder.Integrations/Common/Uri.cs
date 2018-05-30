@@ -10,6 +10,10 @@ namespace JobAdder.Integrations.Common
 
         #endregion
 
+        /// <summary>
+        /// Get the requested URI
+        /// </summary>
+        /// <returns>Return a string with the requested URI</returns>
         public static string Get()
         {
             // Set the default URI

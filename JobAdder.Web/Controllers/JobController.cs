@@ -4,6 +4,7 @@ using JobAdder.Web.Models;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -11,11 +12,21 @@ namespace JobAdder.Web.Controllers
 {
     public class JobController : Controller
     {
-        private readonly JobService _jobService = new JobService();
-        private readonly CandidateService _candidateService = new CandidateService();
+        #region Declarations
 
-        public JobController()
+        private readonly JobService _jobService;
+        private readonly CandidateService _candidateService;
+
+        #endregion
+
+        public JobController() : this(new HttpClient())
         {
+        }
+
+        public JobController(HttpClient httpClient)
+        {
+            _jobService = new JobService(httpClient);
+            _candidateService = new CandidateService(httpClient);
         }
 
         // GET: Job
@@ -26,7 +37,7 @@ namespace JobAdder.Web.Controllers
             return View(jobs.OrderBy(q => q.Name).ToList());
         }
 
-        public async Task<ActionResult> BestFit(int jobId)
+        public async Task<ActionResult> BestFit(int id)
         {
             List<BestFitViewModel> model = new List<BestFitViewModel>();
 
@@ -34,17 +45,17 @@ namespace JobAdder.Web.Controllers
             List<Job> jobs = await _jobService.ListAllJobsAsync();
 
             // Get the current job
-            Job job = jobs.FirstOrDefault(q => q.JobId == jobId);
+            Job job = jobs.FirstOrDefault(q => q.JobId == id);
 
             if (job != null)
             {
-                // Create a dictionary list of job skills
+                // Create to the job a dictionary of skills and value
                 Dictionary<string, int> listJobSkills = new Dictionary<string, int>();
 
                 // Get the number of skills for the job
                 int value = job.Skills != null ? job.Skills.Split(',').Count() : 0;
 
-                // Create a list of skills for the job and set the value
+                // Add to the job list each skill and value
                 foreach (string skill in job.Skills?.Split(','))
                 {
                     listJobSkills.Add(skill.Trim().ToString(), value--);
@@ -53,17 +64,19 @@ namespace JobAdder.Web.Controllers
                 // List all candidates
                 List<Candidate> candidates = await _candidateService.ListAllCandidatesAsync();
 
-                // Create a list of skills for each candidate
                 foreach (Candidate candidate in candidates)
                 {
-                    string[] skillTags = candidates.FirstOrDefault(q => q.CandidateId == candidate.CandidateId).SkillTags?.Split(',');
-
+                    // Create to each candidate a dictionary of skills and value 
                     Dictionary<string, int> listCandidateSkills = new Dictionary<string, int>();
+
+                    string[] skillTags = candidates.FirstOrDefault(q => q.CandidateId == candidate.CandidateId).SkillTags?.Split(',');
 
                     foreach (string skill in skillTags)
                     {
+                        // Set the dictionary key
                         string key = $"CandidateId: {candidate.CandidateId} - Skill: {skill.Trim().ToString()}";
 
+                        // Add to the candidate list each skill and value
                         if (!listCandidateSkills.Any(q => q.Key == key))
                         {
                             listCandidateSkills.Add(key, listJobSkills.FirstOrDefault(q => q.Key == skill.Trim().ToString()).Value);
@@ -89,7 +102,7 @@ namespace JobAdder.Web.Controllers
                 // Get the total of candidates who will be retrieved per job
                 int.TryParse(ConfigurationManager.AppSettings["Candidates"], out int totalCandidates);
 
-                // Set the title of the page
+                // Set the title and subtitle of the page
                 ViewBag.Title = $"Top {totalCandidates} candidates for {job.Name}";
                 ViewBag.Subtitle = $"Skills for this job: {job.Skills}";
 
