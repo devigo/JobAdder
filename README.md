@@ -9,3 +9,10 @@
 #
 ### API documentation can be found in the following location:
 #### https://jobadder1.docs.apiary.io/#
+#
+### Additional developer comments
+#### Used points/values system to set the best candidates for each job
+#### It has been defined that up to 10 candidates per job will be retrieved - this can be setup in the app.config from JobAdder.Integrations
+#
+### Special feature of the system
+#### Used memory cache to increase performance and data returns - the time to expire the cache can be setup in the web.config from JobAdder.Web
