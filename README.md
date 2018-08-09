@@ -17,4 +17,4 @@ It has been defined that up to 10 candidates per job will be retrieved - this ca
 #### Special feature of the system
 Used memory cache to increase performance and data returns - the time to expire the cache can be setup in the web.config from JobAdder.Web
 #
-Visit http://jobadder.poob.com.br/ to see this project.
+Visit http://jobadder.poob.com.br/ to see the demo.
